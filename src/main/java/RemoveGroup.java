@@ -13,12 +13,12 @@ public class RemoveGroup extends Command {
     public void execute(PrintWriter pw) {
         try{
             String ipAddress=arg[1];
-            //verificare existenta IP
+            //IP existence check
             if(ipAddress.isEmpty()){
                 throw  new MissingIpAddressException();
             }
             ResourceGroup group = null;
-            //cautarea grup cu IP ul cerut
+            //searching for group with requested IP
             Database database = Database.getInstance();
             for (ResourceGroup aux : database.getResourceGroups()) {
                 if (aux.getIpAddress().equals(ipAddress))
@@ -29,7 +29,7 @@ public class RemoveGroup extends Command {
                 return ;
             }
             pw.println(arg[0]+": "+ipAddress);
-            //stergere grup
+            //delete group
             database.removeGroup(group);
         }catch (MissingIpAddressException e){
             pw.println(arg[0]+": "+e.getMessage()+" ## line no: "+nrLine);

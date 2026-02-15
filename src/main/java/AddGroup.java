@@ -11,15 +11,15 @@ public class AddGroup extends Command {
     public void execute(PrintWriter pw){
         Database database=Database.getInstance();
         try {
-            //verificare existenta IP
+            //IP existence check
             if (arg[1].isEmpty()) {
                 throw new MissingIpAddressException();
             }
             String ipAddress=arg[1];
-            //adaugare grup in baza de date
+            //add group to database
             ResourceGroup resourceGroup=new ResourceGroup(ipAddress);
             database.addResourceGroup(resourceGroup);
-            //afisare mesaj succes
+            //display success message
             pw.println(arg[0]+": "+ipAddress);
 
         }catch (MissingIpAddressException e){

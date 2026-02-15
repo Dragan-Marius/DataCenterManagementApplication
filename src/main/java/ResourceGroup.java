@@ -19,7 +19,6 @@ public class ResourceGroup {
         return this.ipAddress;
     }
     public void update(Alert alert, PrintWriter pw){
-        //System.out.println(this.ipAddress+" ");
         pw.println("ADD EVENT: "+alert.getIpAddress()+": type = "+alert.getType()+" && severity = "+alert.getSeverity()+" && message = "+alert.getMessage());
     }
     public void addMember(User m){

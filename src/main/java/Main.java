@@ -6,27 +6,26 @@ public class Main {
     public static void executieComenziFisier(String filename){
         PrintWriter pw=null;
         try {
-            //crearea fisierului de input
+            //creating the input file
             File file = new File(filename+".in");
             FileReader fileReader = new FileReader(file);
             BufferedReader fileBuffered = new BufferedReader(fileReader);
-            //crearea fisierului de output
+            //creating the output file
             filename=filename+".out";
             File fileOut=new File(filename);
             FileWriter fw=new FileWriter(fileOut);
             pw=new PrintWriter(fw);
-            //pw.println("ana");
-            //citirea header ului
+            //reading the header
             String line=fileBuffered.readLine();
             line=fileBuffered.readLine();
             CommandFactory f=new CommandFactory();
             int nrLine=1;
             while(line!=null){
-                //pentru pastrarea si elementelor goale
+                //for storing empty elements as well
                 String [] arg=line.split("\\|",-1);
                 Command command=null;
                 String nameCommand=arg[0];
-                //crearea comenzii
+                //creating the command
                 command=f.create(nameCommand,arg,nrLine);
                 if(command!=null)
                     command.execute(pw);
@@ -43,9 +42,8 @@ public class Main {
         }
     }
     public static void main(String[] args) {
-        //System.out.println("Proiect 2026");
         Database.getInstance().reset();
-        //pentru a avea o baza de date noua la fiecare test
+        //to have a new database for each test
         args[0]=args[0].toUpperCase();
         PathTypes type=PathTypes.valueOf(args[0]);
         if(args.length==2) {

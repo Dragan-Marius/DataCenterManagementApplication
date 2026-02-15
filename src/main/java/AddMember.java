@@ -11,11 +11,11 @@ public class AddMember extends Command{
     public void execute(PrintWriter pw){
         Database database=Database.getInstance();
         try {
-            //verificare existenta IP
+            //IP existence check
             String ipAddress = arg[1];
             if (ipAddress.isEmpty())
                 throw new MissingIpAddressException();
-            //verificare existenta nume,rol,email,departament
+            //check the existence of name, role, email, department
             if(arg[2].isEmpty() || arg[3].isEmpty()|| arg[4].isEmpty() || arg[5].isEmpty())
                 return;
             String userName=arg[2];
@@ -23,7 +23,7 @@ public class AddMember extends Command{
             String userEmail=arg[4];
             String department=arg[5];
             User user=null;
-            //verificarea tipului de user si crearea acestuia
+            //checking the user type and creating it
             if(userRole.equals("Admin")){
                 if(arg[6].isEmpty())
                     return ;
@@ -33,7 +33,7 @@ public class AddMember extends Command{
             else if(userRole.equals("Operator")){
                 user=new Operator(userName,userRole,userEmail,department);
             }
-            //cautarea grupului cu ip ul cerut
+            //searching for the group with the requested IP
             ResourceGroup group=null;
             for(ResourceGroup aux: database.getResourceGroups()){
                 if(aux.getIpAddress().equals(ipAddress)){

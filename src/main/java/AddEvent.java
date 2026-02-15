@@ -26,7 +26,7 @@ public class AddEvent extends Command{
             if(temp.getIpAddress().equals(ip_address))
                 group=temp;
         }
-        //notificarea grupului pentru a le permite membrilor grupului sa trateze alerta
+        //group notification to allow group members to handle the alert
         group.observer(server);
         server.addAlert(alertNew,pw);
     }

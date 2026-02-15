@@ -8,11 +8,11 @@ import java.util.Set;
 
 //design pattern builder de facut
 public class Server {
-    //obligatorii
+    //mandatory
     private String ipAddress;
     private Location location;
     private User owner;
-    //optionale
+    //features
     private String hostname;
     private ServerStatus status;
     private Integer cpuCores;
@@ -66,11 +66,11 @@ public class Server {
     }
 
     public static class Builder{
-        //obligatorii
+        //mandatory
         private String ipAddress;
         private Location location;
         private User owner;
-        //optionale
+        //features
         private String hostname;
         private ServerStatus status;
         private Integer cpuCores;
@@ -109,14 +109,14 @@ public class Server {
             return new Server(this);
         }
     }
-    //design pentru observer
-    //alerta adaugata la server
+    //observer
+    //alert added to server
     private Alert alert;
     public void addAlert(Alert alert,PrintWriter pw){
         this.alert=alert;
         notifyGroups(pw);
     }
-    //crearea grupurilor care sunt conectate la server
+    //creating groups that are connected to the server
     private Set<ResourceGroup> groups=new HashSet<>();
     public void attach(ResourceGroup group){
         if(group.getIpAddress().equals(ipAddress))

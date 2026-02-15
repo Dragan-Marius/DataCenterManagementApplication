@@ -12,16 +12,16 @@ public class FindMember extends Command {
     @Override
     public void execute(PrintWriter pw) {
         try{
-            //verificare existenta IP
+            //IP existence check
             String ipAddress=arg[1];
             if(ipAddress.isEmpty())
                 throw new MissingIpAddressException();
             String userName=arg[2];
             String userRole=arg[3];
-            //verificare existenta rol si nume
+            //verify the existence of the role and name
             if(userRole.length()==0 || userName.isEmpty())
                 throw new UserException();
-            //cautare grup cu ip ul cerut
+            //search for group with requested IP
             ResourceGroup group=null;
             Database database=Database.getInstance();
             for(ResourceGroup aux: database.getResourceGroups()){
@@ -32,7 +32,7 @@ public class FindMember extends Command {
                 pw.println(arg[0]+": Group not found: ipAddress = "+ipAddress);
                 return;
             }
-            //cautarea user ului cu acelas nume si rol
+            //searching for a user with the same name and role
             User user=null;
             for(User u:group.getMembers()){
                 if(u.getName().equals(userName) && u.getRole().equals(userRole))

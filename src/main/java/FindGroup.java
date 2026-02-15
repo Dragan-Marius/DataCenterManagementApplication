@@ -12,12 +12,12 @@ public class FindGroup extends Command {
     @Override
     public void execute(PrintWriter pw) {
         try{
-            //verificare existenta IP
+            //IP existence check
             String ipAddress=arg[1];
             if(ipAddress.isEmpty()){
                 throw  new MissingIpAddressException();
             }
-            //cautarea grupului cu ip ul cerut
+            //searching for the group with the requested IP
             ResourceGroup group = null;
             Database database = Database.getInstance();
             for (ResourceGroup aux : database.getResourceGroups()) {

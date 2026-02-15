@@ -11,25 +11,25 @@ public class AddServer extends Command {
     public void execute(PrintWriter pw){
         Database database=Database.getInstance();
         try{
-            //verificare existenta IP
+            //IP existence check
             String ipAddress=this.arg[2];
             if(ipAddress.length()==0){
                 throw new MissingIpAddressException();
             }
-            //verificare existenta rol si nume
+            //verify the existence of the role and name
             String userName=arg[9];
             String userRole=arg[10];
             if(userRole.length()==0 || userName.length()==0){
                 throw new UserException();
             }
-            //verificare existenta tara
+            //country existence verification
             String country=this.arg[4];
             if(country.length()==0){
                 throw new LocationException();
             }
             User user;
             String userEmail=arg[11];
-            //verificare tip rol
+            //role type verification
             if(!arg[11].isEmpty() && !arg[12].isEmpty() &&!arg[13].isEmpty() && userRole.equals("Admin")){
                 int clearanceLevel=Integer.parseInt(arg[13]);
                 String userDepartament=arg[12];
@@ -41,7 +41,7 @@ public class AddServer extends Command {
             } else {
                 user= new User(userName,userRole,userEmail);
             }
-            //crearea locatiei si cu parametri optionali daca sunt prezenti
+            //creating the location and with optional parameters if present
             Location.Builder temp=new Location.Builder(country);
             if(arg[5].length()!=0){
                 temp=temp.setCity(arg[5]);
@@ -78,7 +78,7 @@ public class AddServer extends Command {
             if(arg[1].length()!=0){
                 aux=aux.setHostname(arg[1]);
             }
-            //adaugarea serverului in baza de date si afisarea mesajului de succes
+            //adding the server to the database and displaying the success message
             Server server=aux.build();
             database.addServer(server);
             pw.println("ADD SERVER: "+ipAddress+": "+server.getStatus());

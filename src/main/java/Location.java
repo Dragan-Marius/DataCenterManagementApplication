@@ -1,9 +1,9 @@
 package main.java;
 //design pattern builder
 public class Location {
-    //obligatoriu
+    //mandatory
     private String country;
-    //optionale
+    //Features
     private String city;
     private String address;
     private Double latitude;
@@ -16,9 +16,9 @@ public class Location {
         this.longitude=builder.longitude;
     }
     public static class Builder{
-        //obligatoriu
+        //mandatory
         private String country;
-        //optionale
+        //Features
         private String city;
         private String address;
         private Double latitude;

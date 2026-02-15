@@ -11,17 +11,17 @@ public class RemoveMember extends Command{
     @Override
     public void execute(PrintWriter pw) {
         try {
-            //verificare existenta IP
+            //IP existence check
             String ipAddress = arg[1];
             if (ipAddress.isEmpty())
                 throw new MissingIpAddressException();
             String userName = arg[2];
             String userRole = arg[3];
-            //verificare existenta rol si nume
+            //verify the existence of the role and name
             if (userRole.length() == 0 || userName.isEmpty())
                 throw new UserException();
             ResourceGroup group = null;
-            //cautare grup cu ip ul cerut
+            //search for group with requested IP
             Database database = Database.getInstance();
             for (ResourceGroup aux : database.getResourceGroups()) {
                 if (aux.getIpAddress().equals(ipAddress))
@@ -32,12 +32,12 @@ public class RemoveMember extends Command{
                 return ;
             }
             User user=null;
-            //cautarea user ului cu acelas nume si rol
+            //searching for a user with the same name and role
             for(User u:group.getMembers()){
                 if(u.getName().equals(userName) && u.getRole().equals(userRole))
                     user=u;
             }
-            //afisare mesaj succes si eroare
+            //display success and error message
             if(user==null){
                 pw.println(arg[0]+": Member not found: ipAddress = "+ipAddress+": name = "+userName+" && role = "+userRole);
             }

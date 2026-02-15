@@ -8,7 +8,7 @@ public class User {
         this.role = role;
         this.email = email;
     }
-    //gettere pentru variabile
+    //getters for variables
     public String getName() {
         return name;
     }

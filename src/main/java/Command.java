@@ -7,6 +7,6 @@ public abstract class Command {
     public Command(int nrLine){
         this.nrLine=nrLine;
     }
-    //metoda pentru executia comenzii primite
+    //method for executing the received command
     public abstract void execute(PrintWriter pw);
 }

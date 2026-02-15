@@ -15,17 +15,17 @@ to execute the required logic and interact with the database.
 
 Design Pattern Implemented:
     To ensure clean code and high maintability, the system utilizes a 5 core Design Patterns:
-1.Singleton(Database.java): Ensures a single, globally accessible instance of the database. By using a private
+1. Singleton(Database.java): Ensures a single, globally accessible instance of the database. By using a private
 constructor and a static 'getInstance()' method, I prevented multiple instantations and ensured data consistency
 across the system.
-2.Factory Method(CommandFactory.java): Decouples object creation from execution logic. The factory decides which command
+2. Factory Method(CommandFactory.java): Decouples object creation from execution logic. The factory decides which command
 instantiate based on input strings, allowing the 'Main' class to remain agnostic of specific command types.
-3.Command Pattern(Command hierachy): Encapsulates each system request as an object. This makes it easy to add new commands
+3. Command Pattern(Command hierachy): Encapsulates each system request as an object. This makes it easy to add new commands
 in the future without modifying existing execution logic, adhering to the Open-Closed Principle.
-4.Observer Pattern: Implemented for the alert mechanism. The Server acts as the Subject, and the
+4. Observer Pattern: Implemented for the alert mechanism. The Server acts as the Subject, and the
 ResourceGroup acts as the Observer. When an alert is generated, the server automatically notifies the relevant monitoring
 groups to handle the event.
-5.Builder Pattern(Server,Location):  Used to manage complex objects with numerous optional attributes (coordinates,
+5. Builder Pattern(Server,Location):  Used to manage complex objects with numerous optional attributes (coordinates,
 specific hardware specs). This eliminates "telescoping constructors" and improves code readability.
 
 Technical Highlights

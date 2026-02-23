@@ -8,7 +8,7 @@ import main.java.enums.*;
 import java.io.*;
 
 public class Main {
-    public static void executieComenziFisier(String filename){
+    public static void orderExecution(String filename){
         PrintWriter pw=null;
         try {
             //creating the input file
@@ -53,14 +53,14 @@ public class Main {
         PathTypes type=PathTypes.valueOf(args[0]);
         if(args.length==2) {
             if(type==PathTypes.SERVERS)
-                executieComenziFisier(args[1]);
+                orderExecution(args[1]);
             if(type==(PathTypes.GROUPS))
-                executieComenziFisier(args[1]);
+                orderExecution(args[1]);
         } else if(args.length==4){
             if(type==(PathTypes.LISTENER)) {
-                executieComenziFisier(args[1]);
-                executieComenziFisier(args[2]);
-                executieComenziFisier(args[3]);
+                orderExecution(args[1]);
+                orderExecution(args[2]);
+                orderExecution(args[3]);
             }
         }
     }

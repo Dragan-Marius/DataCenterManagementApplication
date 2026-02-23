@@ -1,4 +1,4 @@
-package main.java.model;
+package main.java.entity;
 //design pattern builder
 public class Location {
     //mandatory

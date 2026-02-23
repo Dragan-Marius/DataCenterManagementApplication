@@ -3,8 +3,7 @@ package main.java.command;
 import java.io.PrintWriter;
 import main.java.database.*;
 import main.java.enums.*;
-import main.java.model.*;
-import main.java.exception.*;
+import main.java.entity.*;
 
 public class AddEvent extends Command{
     String [] arg;

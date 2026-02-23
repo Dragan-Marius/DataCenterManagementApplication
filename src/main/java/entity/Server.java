@@ -1,4 +1,4 @@
-package main.java.model;
+package main.java.entity;
 //observer si builder
 import java.io.PrintWriter;
 import java.util.HashSet;

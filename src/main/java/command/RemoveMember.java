@@ -2,7 +2,7 @@ package main.java.command;
 import java.io.PrintWriter;
 import main.java.database.*;
 import main.java.exception.*;
-import main.java.model.*;
+import main.java.entity.*;
 
 public class RemoveMember extends Command{
     String [] arg;

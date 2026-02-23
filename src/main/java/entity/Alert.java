@@ -1,4 +1,4 @@
-package main.java.model;
+package main.java.entity;
 
 import main.java.enums.*;
 public class Alert {

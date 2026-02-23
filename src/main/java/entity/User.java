@@ -1,4 +1,4 @@
-package main.java.model;
+package main.java.entity;
 public class User {
     private String name;
     private String role;

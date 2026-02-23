@@ -1,9 +1,7 @@
 package main.java.database;
 
 import java.util.*;
-import main.java.model.*;
-import main.java.enums.*;
-import main.java.exception.*;
+import main.java.entity.*;
 
 //design pattern singleton
 public class Database {

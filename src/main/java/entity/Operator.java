@@ -1,4 +1,4 @@
-package main.java.model;
+package main.java.entity;
 
 public class Operator extends User{
     private String department;

@@ -6,14 +6,14 @@ import java.util.*;
 public class ResourceGroup {
     private List<User> members;
     private String ipAddress;
-    private Server subiect;
+    private Server subject;
     public ResourceGroup(String ipAddress){
         members=new ArrayList<>();
         this.ipAddress=ipAddress;
     }
-    public void observer(Server subiect){
-        this.subiect=subiect;
-        subiect.attach(this);
+    public void observer(Server subject){
+        this.subject =subject;
+        subject.attach(this);
     }
     public String getIpAddress(){
         return this.ipAddress;

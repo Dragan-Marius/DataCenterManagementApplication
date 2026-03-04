@@ -31,4 +31,16 @@ public class ResourceGroup {
         this.members.remove(membru);
     }
 
+    @Override
+    public boolean equals(Object obj) {
+        if(this==obj) return true;
+        if(obj==null || getClass()!=obj.getClass()) return false;
+        ResourceGroup group=(ResourceGroup)obj;
+        return ipAddress.equals(group.ipAddress);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(ipAddress);
+    }
 }

@@ -2,6 +2,7 @@ package main.java.entity;
 //observer si builder
 import java.io.PrintWriter;
 import java.util.HashSet;
+import java.util.Objects;
 import java.util.Set;
 import main.java.enums.*;
 
@@ -125,5 +126,17 @@ public class Server {
         for(ResourceGroup rs:groups){
                 rs.update(this.alert,pw);
         }
+    }
+    @Override
+    public boolean equals(Object obj) {
+        if(this==obj) return true;
+        if(obj==null || getClass()!=obj.getClass()) return false;
+        Server server=(Server) obj;
+        return ipAddress.equals(server.ipAddress);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(ipAddress);
     }
 }

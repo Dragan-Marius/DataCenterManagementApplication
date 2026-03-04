@@ -1,4 +1,7 @@
 package main.java.entity;
+
+import java.util.Objects;
+
 public class User {
     private String name;
     private String role;
@@ -19,5 +22,16 @@ public class User {
 
     public String getEmail() {
         return email;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if(this==obj) return true;
+        if(obj==null || getClass()!=obj.getClass()) return false;
+        User u=(User)obj;
+        return name.equals(u.name) && role.equals(u.role);
+    }
+    public int hasCode(){
+        return Objects.hash(name,role);
     }
 }

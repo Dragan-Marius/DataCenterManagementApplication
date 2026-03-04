@@ -4,11 +4,11 @@ import java.io.PrintWriter;
 import java.util.*;
 
 public class ResourceGroup {
-    private List<User> members;
+    private Set<User> members;
     private String ipAddress;
     private Server subject;
     public ResourceGroup(String ipAddress){
-        members=new ArrayList<>();
+        members=new HashSet<>();
         this.ipAddress=ipAddress;
     }
     public void observer(Server subject){
@@ -24,7 +24,7 @@ public class ResourceGroup {
     public void addMember(User m){
         members.add(m);
     }
-    public List<User> getMembers(){
+    public Set<User> getMembers(){
         return this.members;
     }
     public void removeMember(User membru){
